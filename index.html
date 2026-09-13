@@ -1,81 +1,1091 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="AI101 Prompt Journey: Exergaming — presentation-style website" />
   <title>AI101 Prompt Journey | Exergaming</title>
   <style>
-    :root{--navy:#0e1420;--blue:#173c60;--slate:#8fa3bc;--mint:#35d0a0;--yellow:#ffff00;--ice:#eaf0f6;--ink:#142a40;--line:#d6e2ec;--paper:#f3f7fa;--white:#fff;--shadow:0 18px 45px rgba(8,28,48,.12)}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Noto Sans Thai","Sarabun",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.68}a{color:inherit}.wrap{width:min(1180px,calc(100% - 34px));margin:auto}
-    nav{position:sticky;z-index:20;top:0;background:rgba(14,20,32,.97);border-bottom:1px solid rgba(255,255,255,.12);backdrop-filter:blur(12px)}.navin{min-height:63px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{color:#fff;font-weight:900;text-decoration:none;letter-spacing:.25px}.brand b{color:var(--mint)}.links{display:flex;gap:13px;flex-wrap:wrap}.links a{font-size:.8rem;color:#c9d8e8;text-decoration:none;font-weight:750}.links a:hover{color:var(--mint)}
-    .hero{position:relative;overflow:hidden;background:radial-gradient(circle at 12% 22%,rgba(53,208,160,.27),transparent 26%),radial-gradient(circle at 88% 18%,rgba(87,175,242,.26),transparent 24%),linear-gradient(135deg,#0e1420,#173c60 64%,#0b253a);color:#fff;padding:79px 0 70px}.hero:after{content:"";position:absolute;right:-115px;bottom:-165px;width:390px;height:390px;border-radius:50%;border:1px solid rgba(53,208,160,.42);box-shadow:0 0 0 36px rgba(53,208,160,.055),0 0 0 72px rgba(53,208,160,.03)}.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.2fr .8fr;gap:38px;align-items:center}.kicker{color:var(--yellow);text-transform:uppercase;letter-spacing:1.15px;font-weight:900;font-size:.8rem}.hero h1{font-size:clamp(2.4rem,6vw,4.9rem);letter-spacing:-1.7px;line-height:1.05;margin:14px 0 16px}.hero p{margin:0;color:#cad9e8;font-size:1.03rem;max-width:710px}.student{margin-top:21px!important;font-size:.92rem}.student strong{color:var(--mint)}.hero-card{padding:23px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.075);border-radius:20px;box-shadow:var(--shadow)}.hero-card h2{font-size:1.08rem;margin:0 0 11px}.hero-card ul{margin:0;padding-left:19px;color:#e1ecf6}.hero-card li+li{margin-top:6px}.actions{margin-top:25px;display:flex;flex-wrap:wrap;gap:10px}.btn{display:inline-block;padding:10px 15px;border-radius:10px;text-decoration:none;font-weight:900}.btn.main{color:#06251c;background:var(--mint)}.btn.line{color:#fff;border:1px solid rgba(255,255,255,.36)}
-    .overview{background:#fff;border-bottom:1px solid var(--line);padding:52px 0}.heading{max-width:850px}.eyebrow{margin:0 0 6px;color:#098563;text-transform:uppercase;font-size:.78rem;font-weight:900;letter-spacing:.85px}.heading h2{font-size:clamp(1.72rem,4vw,2.65rem);margin:0 0 10px;line-height:1.26}.heading p{margin:0;color:#62768a}.principles{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:26px}.principle{border:1px solid var(--line);border-radius:15px;padding:19px;background:#fbfdff}.num{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--blue);color:#fff;font-weight:900;margin-bottom:9px}.principle h3{margin:0;font-size:1.02rem}.principle p{margin:7px 0 0;color:#64788c;font-size:.91rem}
-    .journey{padding:61px 0}.aspects{display:grid;gap:35px;margin-top:29px}.aspect{overflow:hidden;border-radius:22px;border:1px solid var(--line);box-shadow:0 9px 28px rgba(10,35,56,.06);background:#fff}.aspect-head{padding:22px 25px;background:linear-gradient(110deg,#0e1420,#194a6a);color:#fff}.aspect-tag{color:var(--yellow);text-transform:uppercase;letter-spacing:1px;font-size:.74rem;font-weight:900}.aspect-row{display:flex;align-items:flex-start;justify-content:space-between;gap:15px}.aspect-head h2{font-size:clamp(1.3rem,3vw,1.75rem);margin:6px 0 0;line-height:1.28}.pill{padding:4px 10px;border-radius:999px;background:#c8fae8;color:#07513f;font-size:.75rem;font-weight:900;white-space:nowrap}.aspect-head p{color:#cbd9e7;margin:8px 0 0;font-size:.92rem}.slide-list{padding:23px;display:grid;gap:20px}.slide{overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:17px}.slide-top{padding:16px 18px;background:linear-gradient(100deg,#fbfdff,#f1f8fd);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:15px;align-items:center}.slide-top .stage{font-weight:900;color:#0f2c47;font-size:1rem}.slide-top .slide-no{color:#0c8764;background:#dcfaee;border-radius:999px;padding:4px 9px;font-size:.76rem;font-weight:900;white-space:nowrap}.slide-body{padding:18px}.slide-body p{color:#60768a;margin:0 0 13px;font-size:.93rem}.single-shot{margin:0;border:1px solid #cbdde8;background:#eef4f8;border-radius:13px;overflow:hidden}.single-shot img{display:block;width:100%;max-height:650px;object-fit:contain;background:#f5f8fa}.single-shot figcaption{padding:9px 12px;background:#fff;font-size:.84rem;color:#3d5970;font-weight:800}.reflection{padding:17px 19px;background:#fffdea;border-left:5px solid var(--yellow);border-radius:11px;color:#476075}.reflection b{color:#0e1420}.file-panel{display:flex;align-items:center;justify-content:space-between;gap:13px;flex-wrap:wrap;padding:18px;border:1px solid #b9e2d5;border-radius:15px;background:linear-gradient(115deg,#effff8,#f8fffc)}.file-panel h3{margin:0;color:#0b5b46;font-size:1.02rem}.file-panel p{margin:4px 0 0;color:#557068;font-size:.89rem}.file-panel a{background:#0e8565;color:#fff;border-radius:10px;padding:10px 13px;text-decoration:none;font-weight:900;font-size:.89rem}.final{padding:63px 0;background:linear-gradient(135deg,#0d2034,#174d60);color:white}.final .eyebrow{color:var(--mint)}.final .heading p{color:#d0e0ec}.final-grid{display:grid;grid-template-columns:1fr 1fr;gap:17px;margin-top:26px}.final-card{background:rgba(255,255,255,.98);color:#173047;padding:22px;border-radius:17px}.final-card h3{margin:0 0 8px}.final-card p{margin:0;color:#5d7386}.final-card a{display:inline-block;margin-top:14px;border-radius:10px;padding:10px 13px;background:var(--mint);color:#06251c;text-decoration:none;font-weight:900}.foot{text-align:center;padding:28px;color:#6c8194;font-size:.87rem}
-    @media(max-width:840px){.links{display:none}.hero{padding:64px 0}.hero-grid,.final-grid{grid-template-columns:1fr}.principles{grid-template-columns:1fr}.single-shot img{max-height:none}.slide-top{align-items:flex-start}.aspect-row{display:block}.pill{display:inline-block;margin-top:10px}}
+    :root {
+      --navy: #0e1420;
+      --blue: #173c60;
+      --slate: #8fa3bc;
+      --mint: #35d0a0;
+      --yellow: #ffff00;
+      --ice: #eaf0f6;
+      --ink: #142a40;
+      --line: #d6e2ec;
+      --paper: #f3f7fa;
+      --white: #fff;
+      --shadow: 0 18px 45px rgba(8, 28, 48, .12)
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Noto Sans Thai", "Sarabun", system-ui, -apple-system, "Segoe UI", sans-serif;
+      line-height: 1.68
+    }
+
+    a {
+      color: inherit
+    }
+
+    .wrap {
+      width: min(1180px, calc(100% - 34px));
+      margin: auto
+    }
+
+    nav {
+      position: sticky;
+      z-index: 20;
+      top: 0;
+      background: rgba(14, 20, 32, .97);
+      border-bottom: 1px solid rgba(255, 255, 255, .12);
+      backdrop-filter: blur(12px)
+    }
+
+    .navin {
+      min-height: 63px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px
+    }
+
+    .brand {
+      color: #fff;
+      font-weight: 900;
+      text-decoration: none;
+      letter-spacing: .25px
+    }
+
+    .brand b {
+      color: var(--mint)
+    }
+
+    .links {
+      display: flex;
+      gap: 13px;
+      flex-wrap: wrap
+    }
+
+    .links a {
+      font-size: .8rem;
+      color: #c9d8e8;
+      text-decoration: none;
+      font-weight: 750
+    }
+
+    .links a:hover {
+      color: var(--mint)
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(circle at 12% 22%, rgba(53, 208, 160, .27), transparent 26%), radial-gradient(circle at 88% 18%, rgba(87, 175, 242, .26), transparent 24%), linear-gradient(135deg, #0e1420, #173c60 64%, #0b253a);
+      color: #fff;
+      padding: 79px 0 70px
+    }
+
+    .hero:after {
+      content: "";
+      position: absolute;
+      right: -115px;
+      bottom: -165px;
+      width: 390px;
+      height: 390px;
+      border-radius: 50%;
+      border: 1px solid rgba(53, 208, 160, .42);
+      box-shadow: 0 0 0 36px rgba(53, 208, 160, .055), 0 0 0 72px rgba(53, 208, 160, .03)
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 38px;
+      align-items: center
+    }
+
+    .kicker {
+      color: var(--yellow);
+      text-transform: uppercase;
+      letter-spacing: 1.15px;
+      font-weight: 900;
+      font-size: .8rem
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 4.9rem);
+      letter-spacing: -1.7px;
+      line-height: 1.05;
+      margin: 14px 0 16px
+    }
+
+    .hero p {
+      margin: 0;
+      color: #cad9e8;
+      font-size: 1.03rem;
+      max-width: 710px
+    }
+
+    .student {
+      margin-top: 21px !important;
+      font-size: .92rem
+    }
+
+    .student strong {
+      color: var(--mint)
+    }
+
+    .hero-card {
+      padding: 23px;
+      border: 1px solid rgba(255, 255, 255, .18);
+      background: rgba(255, 255, 255, .075);
+      border-radius: 20px;
+      box-shadow: var(--shadow)
+    }
+
+    .hero-card h2 {
+      font-size: 1.08rem;
+      margin: 0 0 11px
+    }
+
+    .hero-card ul {
+      margin: 0;
+      padding-left: 19px;
+      color: #e1ecf6
+    }
+
+    .hero-card li+li {
+      margin-top: 6px
+    }
+
+    .actions {
+      margin-top: 25px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 15px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 900
+    }
+
+    .btn.main {
+      color: #06251c;
+      background: var(--mint)
+    }
+
+    .btn.line {
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, .36)
+    }
+
+    .overview {
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      padding: 52px 0
+    }
+
+    .heading {
+      max-width: 850px
+    }
+
+    .eyebrow {
+      margin: 0 0 6px;
+      color: #098563;
+      text-transform: uppercase;
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .85px
+    }
+
+    .heading h2 {
+      font-size: clamp(1.72rem, 4vw, 2.65rem);
+      margin: 0 0 10px;
+      line-height: 1.26
+    }
+
+    .heading p {
+      margin: 0;
+      color: #62768a
+    }
+
+    .principles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 26px
+    }
+
+    .principle {
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      padding: 19px;
+      background: #fbfdff
+    }
+
+    .num {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--blue);
+      color: #fff;
+      font-weight: 900;
+      margin-bottom: 9px
+    }
+
+    .principle h3 {
+      margin: 0;
+      font-size: 1.02rem
+    }
+
+    .principle p {
+      margin: 7px 0 0;
+      color: #64788c;
+      font-size: .91rem
+    }
+
+    .journey {
+      padding: 61px 0
+    }
+
+    .aspects {
+      display: grid;
+      gap: 35px;
+      margin-top: 29px
+    }
+
+    .aspect {
+      overflow: hidden;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      box-shadow: 0 9px 28px rgba(10, 35, 56, .06);
+      background: #fff
+    }
+
+    .aspect-head {
+      padding: 22px 25px;
+      background: linear-gradient(110deg, #0e1420, #194a6a);
+      color: #fff
+    }
+
+    .aspect-tag {
+      color: var(--yellow);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: .74rem;
+      font-weight: 900
+    }
+
+    .aspect-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 15px
+    }
+
+    .aspect-head h2 {
+      font-size: clamp(1.3rem, 3vw, 1.75rem);
+      margin: 6px 0 0;
+      line-height: 1.28
+    }
+
+    .pill {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #c8fae8;
+      color: #07513f;
+      font-size: .75rem;
+      font-weight: 900;
+      white-space: nowrap
+    }
+
+    .aspect-head p {
+      color: #cbd9e7;
+      margin: 8px 0 0;
+      font-size: .92rem
+    }
+
+    .slide-list {
+      padding: 23px;
+      display: grid;
+      gap: 20px
+    }
+
+    .slide {
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 17px
+    }
+
+    .slide-top {
+      padding: 16px 18px;
+      background: linear-gradient(100deg, #fbfdff, #f1f8fd);
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      align-items: center
+    }
+
+    .slide-top .stage {
+      font-weight: 900;
+      color: #0f2c47;
+      font-size: 1rem
+    }
+
+    .slide-top .slide-no {
+      color: #0c8764;
+      background: #dcfaee;
+      border-radius: 999px;
+      padding: 4px 9px;
+      font-size: .76rem;
+      font-weight: 900;
+      white-space: nowrap
+    }
+
+    .slide-body {
+      padding: 18px
+    }
+
+    .slide-body p {
+      color: #60768a;
+      margin: 0 0 13px;
+      font-size: .93rem
+    }
+
+    .single-shot {
+      margin: 0;
+      border: 1px solid #cbdde8;
+      background: #eef4f8;
+      border-radius: 13px;
+      overflow: hidden
+    }
+
+    .single-shot img {
+      display: block;
+      width: 100%;
+      max-height: 650px;
+      object-fit: contain;
+      background: #f5f8fa
+    }
+
+    .single-shot figcaption {
+      padding: 9px 12px;
+      background: #fff;
+      font-size: .84rem;
+      color: #3d5970;
+      font-weight: 800
+    }
+
+    .reflection {
+      padding: 17px 19px;
+      background: #fffdea;
+      border-left: 5px solid var(--yellow);
+      border-radius: 11px;
+      color: #476075
+    }
+
+    .reflection b {
+      color: #0e1420
+    }
+
+    .file-panel {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 13px;
+      flex-wrap: wrap;
+      padding: 18px;
+      border: 1px solid #b9e2d5;
+      border-radius: 15px;
+      background: linear-gradient(115deg, #effff8, #f8fffc)
+    }
+
+    .file-panel h3 {
+      margin: 0;
+      color: #0b5b46;
+      font-size: 1.02rem
+    }
+
+    .file-panel p {
+      margin: 4px 0 0;
+      color: #557068;
+      font-size: .89rem
+    }
+
+    .file-panel a {
+      background: #0e8565;
+      color: #fff;
+      border-radius: 10px;
+      padding: 10px 13px;
+      text-decoration: none;
+      font-weight: 900;
+      font-size: .89rem
+    }
+
+    .final {
+      padding: 63px 0;
+      background: linear-gradient(135deg, #0d2034, #174d60);
+      color: white
+    }
+
+    .final .eyebrow {
+      color: var(--mint)
+    }
+
+    .final .heading p {
+      color: #d0e0ec
+    }
+
+    .final-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 17px;
+      margin-top: 26px
+    }
+
+    .final-card {
+      background: rgba(255, 255, 255, .98);
+      color: #173047;
+      padding: 22px;
+      border-radius: 17px
+    }
+
+    .final-card h3 {
+      margin: 0 0 8px
+    }
+
+    .final-card p {
+      margin: 0;
+      color: #5d7386
+    }
+
+    .final-card a {
+      display: inline-block;
+      margin-top: 14px;
+      border-radius: 10px;
+      padding: 10px 13px;
+      background: var(--mint);
+      color: #06251c;
+      text-decoration: none;
+      font-weight: 900
+    }
+
+    .foot {
+      text-align: center;
+      padding: 28px;
+      color: #6c8194;
+      font-size: .87rem
+    }
+
+    @media(max-width:840px) {
+      .links {
+        display: none
+      }
+
+      .hero {
+        padding: 64px 0
+      }
+
+      .hero-grid,
+      .final-grid {
+        grid-template-columns: 1fr
+      }
+
+      .principles {
+        grid-template-columns: 1fr
+      }
+
+      .single-shot img {
+        max-height: none
+      }
+
+      .slide-top {
+        align-items: flex-start
+      }
+
+      .aspect-row {
+        display: block
+      }
+
+      .pill {
+        display: inline-block;
+        margin-top: 10px
+      }
+    }
   </style>
 </head>
+
 <body>
-<nav><div class="wrap navin"><a class="brand" href="#top">AI101 <b>Prompt Journey</b></a><div class="links"><a href="#overview">ภาพรวม</a><a href="#one">1 Canva</a><a href="#two">2 Desmos</a><a href="#three">3 Mermaid</a><a href="#four">4 Overleaf</a><a href="#five">5 NotebookLM</a><a href="#six">6 GitHub</a></div></div></nav>
-<header class="hero" id="top"><div class="wrap hero-grid"><div><div class="kicker">AI101 · 1st Week Assignment</div><h1>Exergaming<br>Prompt Journey</h1><p>เว็บไซต์รูปแบบ presentation สำหรับแสดงกระบวนการสร้างและพัฒนา Prompt ตามสไลด์ต้นฉบับ โดยเรียงภาพ “หนึ่งภาพต่อหนึ่งขั้น” เพื่อให้อาจารย์ตรวจตามลำดับได้ง่าย</p><p class="student"><strong>จัดทำโดย:</strong> พรภา เลิศอุตสาหกูล<br>รหัสนักศึกษา 2610717302066 · สาขาวิศวกรรมคอมพิวเตอร์และปัญญาประดิษฐ์<br>กลุ่มนอกเวลาวันอาทิตย์ รุ่นที่ 7 ปี 2569 · มหาวิทยาลัยหอการค้าไทย</p><div class="actions"><a class="btn main" href="#one">เริ่มดู Slide 1</a><a class="btn line" href="#documents">เอกสารและเกม</a></div></div><aside class="hero-card"><h2>รูปแบบการตรวจงาน</h2><ul><li>1 ภาพ = 1 ขั้น/1 slide ของกระบวนการ</li><li>เรียง Zero-shot → Result #1 → Few-shot → Result #2</li><li>Reflection อยู่ท้ายแต่ละหัวข้อ</li><li>มีทั้งหมด 6 หัวข้อ ตาม PowerPoint</li><li>มี PDF และเว็บไซต์เกมท้ายงาน</li></ul></aside></div></header>
-<main>
-<section class="overview" id="overview"><div class="wrap"><div class="heading"><div class="eyebrow">Prompt engineering</div><h2>หลักการพัฒนา Prompt</h2><p>เริ่มต้นจาก zero-shot เพื่อดูคำตอบตั้งต้น แล้วใช้จุดที่ยังไม่ตรงความต้องการเป็นข้อมูลสำหรับเพิ่มบริบท ข้อจำกัด และรูปแบบผลลัพธ์ใน few-shot prompt</p></div><div class="principles"><article class="principle"><div class="num">1</div><h3>ระบุเป้าหมาย</h3><p>กำหนดสิ่งที่ต้องการสร้างและหัวข้อให้ชัด เพื่อให้ AI เข้าใจหน้าที่หลักของงาน</p></article><article class="principle"><div class="num">2</div><h3>เพิ่มรายละเอียด</h3><p>ระบุ style, element, variable, node, relationship หรือ format เพื่อควบคุมผลลัพธ์</p></article><article class="principle"><div class="num">3</div><h3>สะท้อนและปรับ</h3><p>เปรียบเทียบผลลัพธ์ก่อนและหลัง เพื่อเรียนรู้ว่า constraint ใดทำให้ผลงานตรงเป้าหมายขึ้น</p></article></div></div></section>
-<section class="journey"><div class="wrap"><div class="heading"><div class="eyebrow">Presentation view</div><h2>หลักฐานเรียงตามสไลด์</h2><p>แต่ละกรอบด้านล่างแสดงเพียงภาพเดียว พร้อมหมายเลขและคำอธิบายของขั้นนั้น เพื่อให้ตรวจตาม PowerPoint ได้ต่อเนื่อง</p></div><div class="aspects">
-<article class="aspect" id="one"><div class="aspect-head"><div class="aspect-tag">Aspect 1 / 6</div><div class="aspect-row"><h2>1. การสร้างภาพด้วย AI — Canva</h2><span class="pill">Slides 1–5</span></div><p>จากภาพ Exergaming แบบกว้าง สู่โปสเตอร์ flat-design ที่ระบุองค์ประกอบด้านสุขภาพและการออกกำลังกายชัดเจน</p></div><div class="slide-list">
-<div class="slide"><div class="slide-top"><span class="stage">1.1 Zero-shot Prompt — Canva</span><span class="slide-no">Slide 1 / 30</span></div><div class="slide-body"><p>Prompt เริ่มต้น: ขอให้สร้างภาพเกี่ยวกับ Exergaming</p><figure class="single-shot"><img src="1.1.jpeg" alt="Prompt: Create an image about Exergaming"><figcaption>ภาพ 1.1 — Zero-shot prompt</figcaption></figure></div></div>
-<div class="slide"><div class="slide-top"><span class="stage">1.2 ผลลัพธ์จาก Prompt แรก</span><span class="slide-no">Slide 2 / 30</span></div><div class="slide-body"><p>ผลลัพธ์เป็นภาพแนวสมจริงของการเล่นเกมร่วมกับการเคลื่อนไหว</p><figure class="single-shot"><img src="1.2.jpeg" alt="First Canva result showing exergaming"><figcaption>ภาพ 1.2 — Result #1</figcaption></figure></div></div>
-<div class="slide"><div class="slide-top"><span class="stage">1.3 Few-shot Prompt — Canva</span><span class="slide-no">Slide 3 / 30</span></div><div class="slide-body"><p>เพิ่ม constraint เรื่อง flat design, motion-sensing game, smartwatch, heart rate, calories และ steps</p><figure class="single-shot"><img src="1.3.jpeg" alt="Few-shot Canva prompt"><figcaption>ภาพ 1.3 — Few-shot prompt</figcaption></figure></div></div>
-<div class="slide"><div class="slide-top"><span class="stage">1.4 ผลลัพธ์จาก Prompt ใหม่</span><span class="slide-no">Slide 4 / 30</span></div><div class="slide-body"><p>ได้โปสเตอร์สี teal/orange พร้อมข้อมูลสุขภาพและองค์ประกอบตามคำสั่ง</p><figure class="single-shot"><img src="1.4.jpeg" alt="Flat design exergaming poster"><figcaption>ภาพ 1.4 — Result #2</figcaption></figure></div></div>
-<div class="reflection"><b>1.5 Reflection:</b> Prompt แรกกว้างจึงทำให้ AI ต้องเดาองค์ประกอบมากกว่า เมื่อเพิ่ม constraint เกี่ยวกับ style, color palette, ตัวละคร, smartwatch และ UI elements ผลลัพธ์ใหม่มีทิศทางชัดขึ้น ควบคุม layout ได้ และทำซ้ำได้ง่ายกว่า</div>
-</div></article>
-<article class="aspect" id="two"><div class="aspect-head"><div class="aspect-tag">Aspect 2 / 6</div><div class="aspect-row"><h2>2. ความสัมพันธ์ทางคณิตศาสตร์ — Desmos</h2><span class="pill">Slides 6–10</span></div><p>จากกราฟพาราโบลาเริ่มต้น สู่การปรับสัมประสิทธิ์เพื่อให้กราฟกว้างและเหมาะกับโมเดลคะแนน Exergaming</p></div><div class="slide-list">
-<div class="slide"><div class="slide-top"><span class="stage">2.1 Zero-shot Prompt — Desmos</span><span class="slide-no">Slide 6 / 30</span></div><div class="slide-body"><p>ขอกราฟพาราโบลาอย่างง่ายสำหรับกิจกรรม Exergaming โดยใช้สมการ y=x²</p><figure class="single-shot"><img src="2.1.jpeg" alt="Zero-shot Desmos parabola prompt"><figcaption>ภาพ 2.1 — Zero-shot prompt</figcaption></figure></div></div>
-<div class="slide"><div class="slide-top"><span class="stage">2.2.1 ผลลัพธ์จาก Prompt แรก: คำอธิบาย</span><span class="slide-no">Slide 7 / 30</span></div><div class="slide-body"><p>กำหนดความหมายตัวแปรตัวอย่าง: x คือจำนวนรอบ/นาทีที่เล่น และ y คือคะแนนเกมหรือ reward points</p><figure class="single-shot"><img src="2.2.1.jpeg" alt="Explanation of y equals x squared"><figcaption>ภาพ 2.2.1 — Result #1: explanation</figcaption></figure></div></div>
-<div class="slide"><div class="slide-top"><span class="stage">2.2.2 ผลลัพธ์จาก Prompt แรก: กราฟ</span><span class="slide-no">Slide 7 / 30</span></div><div class="slide-body"><p>กราฟ y=x² ที่ได้จาก Desmos</p><figure class="single-shot"><img src="2.2.2.jpeg" alt="Desmos graph y equals x squared"><figcaption>ภาพ 2.2.2 — Result #1: graph</figcaption></figure></div></div>
-<div class="slide"><div class="slide-top"><span class="stage">2.3 Few-shot Prompt — Desmos</span><span class="slide-no">Slide 8 / 30</span></div><div class="slide-body"><p>ระบุปัญหาว่ากราฟแคบเกินไป และขอพาราโบลาที่เปิดขึ้นและกว้างกว่าเดิม</p><figure class="single-shot"><img src="2.3.jpeg" alt="Prompt asking for wider parabola"><figcaption>ภาพ 2.3 — Few-shot prompt</figcaption></figure></div></div>
-<div class="slide"><div class="slide-top"><span class="stage">2.4.1 ผลลัพธ์จาก Prompt ใหม่: คำอธิบาย</span><span class="slide-no">Slide 9 / 30</span></div><div class="slide-body"><p>สมการ y=0.0002x² ใช้สัมประสิทธิ์บวกที่เล็กกว่า 1 จึงได้พาราโบลาที่กว้างขึ้น</p><figure class="single-shot"><img src="2.4.1.jpeg" alt="Explanation of y equals 0.0002x squared"><figcaption>ภาพ 2.4.1 — Result #2: explanation</figcaption></figure></div></div>
-<div class="slide"><div class="slide-top"><span class="stage">2.4.2 ผลลัพธ์จาก Prompt ใหม่: กราฟ</span><span class="slide-no">Slide 9 / 30</span></div><div class="slide-body"><p>กราฟพาราโบลากว้างขึ้นจาก Desmos</p><figure class="single-shot"><img src="2.4.2.jpeg" alt="Desmos graph wide parabola"><figcaption>ภาพ 2.4.2 — Result #2: graph</figcaption></figure></div></div>
-<div class="reflection"><b>2.5 Reflection:</b> Prompt ที่ระบุปัญหาและลักษณะผลลัพธ์ที่ต้องการชัดเจน ทำให้ AI เสนอสมการที่ตรงเป้าหมายมากขึ้น Perplexity/AI ช่วยอธิบายหลักการ ขณะที่ Desmos เหมาะสำหรับทดลองและมองเห็นผลของสมการเป็นกราฟ</div>
-</div></article>
-<article class="aspect" id="three"><div class="aspect-head"><div class="aspect-tag">Aspect 3 / 6</div><div class="aspect-row"><h2>3. การสร้าง Diagram — Mermaid</h2><span class="pill">Slides 11–15</span></div><p>เปรียบเทียบ concept map แบบภาพรวมกับ system flow ที่แสดงกระบวนการทำงานของ Exergaming อย่างเฉพาะเจาะจง</p></div><div class="slide-list">
-<div class="slide"><div class="slide-top"><span class="stage">3.1 Zero-shot Prompt — Mermaid</span><span class="slide-no">Slide 11 / 30</span></div><div class="slide-body"><p>ขอ Mermaid diagram เกี่ยวกับ Exergaming แบบกว้าง</p><figure class="single-shot"><img src="3.1.jpeg" alt="Zero-shot Mermaid prompt"><figcaption>ภาพ 3.1 — Zero-shot prompt</figcaption></figure></div></div>
-<div class="slide"><div class="slide-top"><span class="stage">3.2.1 ผลลัพธ์จาก Prompt แรก: Mermaid Code</span><span class="slide-no">Slide 12 / 30</span></div><div class="slide-body"><p>โค้ดสำหรับ concept map: definition, benefits, types, platforms และ users</p><figure class="single-shot"><img src="3.2.1.jpeg" alt="Mermaid code concept map"><figcaption>ภาพ 3.2.1 — Result #1: Mermaid code</figcaption></figure></div></div>
-<div class="slide"><div class="slide-top"><span class="stage">3.2.2 ผลลัพธ์จาก Prompt แรก: Diagram</span><span class="slide-no">Slide 12 / 30</span></div><div class="slide-body"><p>แผนภาพภาพรวมของ Exergaming ที่ได้จาก Mermaid</p><figure class="single-shot"><img src="3.2.2.jpeg" alt="Exergaming concept map diagram"><figcaption>ภาพ 3.2.2 — Result #1: diagram</figcaption></figure></div></div>
-<div class="slide"><div class="slide-top"><span class="stage">3.3 Few-shot Prompt — Mermaid</span><span class="slide-no">Slide 13 / 30</span></div><div class="slide-body"><p>เพิ่ม node, relationship และทิศทาง: การเคลื่อนไหว → sensor → game engine → action → feedback พร้อม heart-rate monitoring</p><figure class="single-shot"><img src="3.3.jpeg" alt="Few-shot Mermaid system flow prompt"><figcaption>ภาพ 3.3 — Few-shot prompt</figcaption></figure></div></div>
-<div class="slide"><div class="slide-top"><span class="stage">3.4.1 ผลลัพธ์จาก Prompt ใหม่: Mermaid Code</span><span class="slide-no">Slide 14 / 30</span></div><div class="slide-body"><p>Mermaid code สำหรับแผนภาพการทำงานของระบบ Exergaming แบบ real-time</p><figure class="single-shot"><img src="3.4.1.jpeg" alt="Mermaid code for exergaming system flow"><figcaption>ภาพ 3.4.1 — Result #2: Mermaid code</figcaption></figure></div></div>
-<div class="slide"><div class="slide-top"><span class="stage">3.4.2 ผลลัพธ์จาก Prompt ใหม่: Diagram</span><span class="slide-no">Slide 14 / 30</span></div><div class="slide-body"><p>System flow: player movement, motion sensor, game engine, character action, feedback และการปรับความยากจาก heart-rate monitor</p><figure class="single-shot"><img src="3.4.2.jpeg" alt="Rendered exergaming system flowchart"><figcaption>ภาพ 3.4.2 — Result #2: system flow diagram</figcaption></figure></div></div>
-<div class="reflection"><b>3.5 Reflection:</b> Diagram แรกเป็น generic concept map จึงยังไม่สื่อ logic ของระบบโดยตรง แต่ prompt ใหม่ระบุ node, relationship และ direction ของ flow ทำให้ได้ diagram ที่อธิบายกระบวนการเชิงเทคนิคได้ชัดเจนและตรงความต้องการมากขึ้น</div>
-</div></article>
-<article class="aspect" id="four"><div class="aspect-head"><div class="aspect-tag">Aspect 4 / 6</div><div class="aspect-row"><h2>4. บทความจาก LaTeX — Overleaf</h2><span class="pill">Slides 16–20</span></div><p>พัฒนา prompt เพื่อให้ได้ LaTeX source code ที่นำไปคัดลอกและ compile บน Overleaf ได้โดยตรง</p></div><div class="slide-list">
-<div class="slide"><div class="slide-top"><span class="stage">4.1 Zero-shot Prompt — Overleaf</span><span class="slide-no">Slide 16 / 30</span></div><div class="slide-body"><p>ขอให้เขียนบทความ LaTeX เรื่อง Exergaming ความยาว 10 หน้า สำหรับ Overleaf</p><figure class="single-shot"><img src="4.1.jpeg" alt="Zero-shot prompt for LaTeX article"><figcaption>ภาพ 4.1 — Zero-shot prompt</figcaption></figure></div></div>
-<div class="slide"><div class="slide-top"><span class="stage">4.2 Few-shot Prompt — Overleaf</span><span class="slide-no">Slide 18 / 30</span></div><div class="slide-body"><p>เพิ่มคำสั่งให้ส่ง “เฉพาะ code สำหรับ Overleaf ที่พร้อม copy”</p><figure class="single-shot"><img src="4.2.jpeg" alt="Few-shot prompt only code ready to copy"><figcaption>ภาพ 4.2 — Few-shot prompt</figcaption></figure></div></div>
-<div class="slide"><div class="slide-top"><span class="stage">4.3 ผลลัพธ์จาก Prompt แรก / ข้อสังเกต</span><span class="slide-no">Slide 17 / 30</span></div><div class="slide-body"><p>ตัวอย่างปัญหาที่เกิดจากข้อความส่วนเกินปนใน code ทำให้การ compile ไม่สมบูรณ์</p><figure class="single-shot"><img src="4.3.jpeg" alt="Overleaf code problem"><figcaption>ภาพ 4.3 — Result #1 / issue observed</figcaption></figure></div></div>
-<div class="slide"><div class="slide-top"><span class="stage">4.4 ผลลัพธ์จาก Prompt ใหม่</span><span class="slide-no">Slide 19 / 30</span></div><div class="slide-body"><p>บทความ Exergaming ที่ compile บน Overleaf สำเร็จ</p><figure class="single-shot"><img src="4.4.jpeg" alt="Compiled Exergaming article in Overleaf"><figcaption>ภาพ 4.4 — Result #2: compiled article</figcaption></figure></div></div>
-<div class="reflection"><b>4.5 Reflection:</b> หากต้องการผลลัพธ์ที่นำไปใช้ได้ทันที ควรระบุรูปแบบ output ให้ชัดเจน การขอเฉพาะ LaTeX code ที่พร้อม copy ช่วยลดข้อความส่วนเกินในพื้นที่ code และลดปัญหา compile เอกสารไม่ขึ้น</div>
-<div class="file-panel"><div><h3>📄 Exergaming.pdf — บทความจาก Overleaf</h3><p>Exergaming: A Comprehensive Treatise on the Fusion of Digital Entertainment, Kinesiology, and Immersive Technology</p></div><a href="Exergaming.pdf" target="_blank" rel="noopener">เปิด/ดาวน์โหลด PDF</a></div>
-</div></article>
-<article class="aspect" id="five"><div class="aspect-head"><div class="aspect-tag">Aspect 5 / 6</div><div class="aspect-row"><h2>5. สรุปเป็นสไลด์ — NotebookLM</h2><span class="pill">Slides 21–25</span></div><p>ใช้บทความ Exergaming เป็น reference เพื่อสร้าง slide deck และปรับชื่อเรื่องให้สัมพันธ์กับสาระของงาน</p></div><div class="slide-list">
-<div class="slide"><div class="slide-top"><span class="stage">5.1.1 เตรียม Source ใน NotebookLM</span><span class="slide-no">Slide 21 / 30</span></div><div class="slide-body"><p>เลือกไฟล์ PDF Exergaming เป็นแหล่งอ้างอิงสำหรับสร้างสไลด์</p><figure class="single-shot"><img src="5.1.1.jpeg" alt="NotebookLM source selection"><figcaption>ภาพ 5.1.1 — Source: Exergaming PDF</figcaption></figure></div></div>
-<div class="slide"><div class="slide-top"><span class="stage">5.1.2 Zero-shot Prompt — NotebookLM</span><span class="slide-no">Slide 21 / 30</span></div><div class="slide-body"><p>Prompt เริ่มต้น: ใช้ reference นี้เพื่อสร้าง slides</p><figure class="single-shot"><img src="5.1.2.jpeg" alt="Use this reference to make slides"><figcaption>ภาพ 5.1.2 — Zero-shot prompt</figcaption></figure></div></div>
-<div class="slide"><div class="slide-top"><span class="stage">5.2 ผลลัพธ์จาก Prompt แรก</span><span class="slide-no">Slide 22 / 30</span></div><div class="slide-body"><p>NotebookLM สร้าง slide deck โดยอิงจากเนื้อหาในเอกสาร Exergaming</p><figure class="single-shot"><img src="5.2.jpeg" alt="NotebookLM generated slide deck"><figcaption>ภาพ 5.2 — Result #1</figcaption></figure></div></div>
-<div class="slide"><div class="slide-top"><span class="stage">5.3 Few-shot Prompt — NotebookLM</span><span class="slide-no">Slide 23 / 30</span></div><div class="slide-body"><p>ปรับชื่อหัวข้อให้เป็น “Exergaming: The fusion of digital play and kinesiology”</p><figure class="single-shot"><img src="5.3.jpeg" alt="Rename topic prompt"><figcaption>ภาพ 5.3 — Few-shot prompt</figcaption></figure></div></div>
-<div class="slide"><div class="slide-top"><span class="stage">5.4.1 ผลลัพธ์จาก Prompt ใหม่: การตอบกลับ</span><span class="slide-no">Slide 24 / 30</span></div><div class="slide-body"><p>AI อธิบายวิธีเปลี่ยนชื่อ notebook/artifact และยืนยันชื่อหัวข้อใหม่</p><figure class="single-shot"><img src="5.4.1.jpeg" alt="NotebookLM response to rename topic"><figcaption>ภาพ 5.4.1 — Result #2: response</figcaption></figure></div></div>
-<div class="slide"><div class="slide-top"><span class="stage">5.4.2 ผลลัพธ์จาก Prompt ใหม่: Slide Cover</span><span class="slide-no">Slide 24 / 30</span></div><div class="slide-body"><p>สไลด์ปกที่ใช้หัวข้อ Exergaming: The fusion of digital play and kinesiology</p><figure class="single-shot"><img src="5.4.2.jpeg" alt="Exergaming generated slide cover"><figcaption>ภาพ 5.4.2 — Result #2: updated slide</figcaption></figure></div></div>
-<div class="reflection"><b>5.5 Reflection:</b> AI แต่ละเครื่องมือมีวิธีทำงานไม่เหมือนกัน NotebookLM เหมาะกับการสรุปโดยอิง source ที่อัปโหลด และสามารถปรับแก้รายละเอียดของงานนำเสนอเป็นส่วน ๆ ได้ การระบุหัวข้อและเป้าหมายให้ชัดจึงช่วยให้สไลด์ตรงกับงานมากขึ้น</div>
-</div></article>
-<article class="aspect" id="six"><div class="aspect-head"><div class="aspect-tag">Aspect 6 / 6</div><div class="aspect-row"><h2>6. เขียนเว็บไซต์และเผยแพร่บน GitHub</h2><span class="pill">Slides 26–30</span></div><p>สร้างเกมฝึก typing แบบ Exergaming แล้วพัฒนา visual design และเผยแพร่ผ่าน GitHub Pages</p></div><div class="slide-list">
-<div class="slide"><div class="slide-top"><span class="stage">6.1 Zero-shot Prompt — Website/Game</span><span class="slide-no">Slide 26 / 30</span></div><div class="slide-body"><p>ขอ file Exergaming สำหรับ typing exercise ตัวอักษร a, s, d, f, j, k, l, ; มี 10 รอบและคะแนนเต็ม 10</p><figure class="single-shot"><img src="6.1.jpeg" alt="Zero-shot prompt to create typing exergame"><figcaption>ภาพ 6.1 — Zero-shot prompt</figcaption></figure></div></div>
-<div class="slide"><div class="slide-top"><span class="stage">6.2.1 ผลลัพธ์จาก Prompt แรก: เกม</span><span class="slide-no">Slide 27 / 30</span></div><div class="slide-body"><p>หน้าเกม Home Row Reflex สำหรับฝึกความไวของนิ้วบนตำแหน่ง Home Row</p><figure class="single-shot"><img src="6.2.1.jpeg" alt="Home Row Reflex game first version"><figcaption>ภาพ 6.2.1 — Result #1: game</figcaption></figure></div></div>
-<div class="slide"><div class="slide-top"><span class="stage">6.2.2 ผลลัพธ์จาก Prompt แรก: Code/README</span><span class="slide-no">Slide 27 / 30</span></div><div class="slide-body"><p>AI สร้างไฟล์ HTML และ README สำหรับนำไป deploy บน GitHub Pages</p><figure class="single-shot"><img src="6.2.2.jpeg" alt="Generated code and README"><figcaption>ภาพ 6.2.2 — Result #1: code and README</figcaption></figure></div></div>
-<div class="slide"><div class="slide-top"><span class="stage">6.3.1 การถามต่อ: ปรับชื่อและโทนสี</span><span class="slide-no">Slide 28 / 30</span></div><div class="slide-body"><p>ขอเปลี่ยนชื่อเป็น “Phornpa Go Go! — Home Row Reflex Exergame” และเปลี่ยน background เป็นฟ้าเข้ม/ตัวอักษรสีเขียวสว่าง</p><figure class="single-shot"><img src="6.3.1.jpeg" alt="Prompt to rename and recolor game"><figcaption>ภาพ 6.3.1 — Few-shot prompt: name and colors</figcaption></figure></div></div>
-<div class="slide"><div class="slide-top"><span class="stage">6.3.2 ผลลัพธ์จากการปรับชื่อและสี</span><span class="slide-no">Slide 28 / 30</span></div><div class="slide-body"><p>AI อธิบายสาเหตุและสร้าง code ใหม่ที่เปลี่ยน title พร้อมกำหนด color variables สำหรับธีมใหม่</p><figure class="single-shot"><img src="6.3.2.jpeg" alt="Code response changing title and color"><figcaption>ภาพ 6.3.2 — Result: renamed and recolored code</figcaption></figure></div></div>
-<div class="slide"><div class="slide-top"><span class="stage">6.4.1 Few-shot Prompt — ปรับดีไซน์เว็บไซต์</span><span class="slide-no">Slide 28 / 30</span></div><div class="slide-body"><p>ระบุให้ทำหน้าเว็บแนว Exergaming ด้วยธีม navy + mint/red accent และมีคำอธิบายภาษาไทย</p><figure class="single-shot"><img src="6.4.1.jpeg" alt="Prompt to improve Exergaming website design"><figcaption>ภาพ 6.4.1 — Few-shot prompt: visual design</figcaption></figure></div></div>
-<div class="slide"><div class="slide-top"><span class="stage">6.4.2 ผลลัพธ์จาก Prompt ใหม่: เว็บไซต์เกม</span><span class="slide-no">Slide 29 / 30</span></div><div class="slide-body"><p>หน้าเว็บไซต์เกมหลังปรับดีไซน์ตามธีม Exergaming</p><figure class="single-shot"><img src="6.4.2.jpeg" alt="Improved Home Row Reflex game page"><figcaption>ภาพ 6.4.2 — Result #2: redesigned website</figcaption></figure></div></div>
-<div class="slide"><div class="slide-top"><span class="stage">6.6 เว็บไซต์เกมที่เผยแพร่แล้ว</span><span class="slide-no">Slide 30 / 30</span></div><div class="slide-body"><p>หลักฐานการเผยแพร่เกม Phornpa Go Go! — Home Row Reflex Exergame บน GitHub Pages</p><figure class="single-shot"><img src="6.6-game-link.jpeg" alt="Published game site link"><figcaption>ภาพ 6.6 — Published game website</figcaption></figure></div></div>
-<div class="reflection"><b>6.5 Reflection:</b> การแก้โค้ดอาจทำให้ผลลัพธ์ดีขึ้นหรือแย่ลงได้ จึงต้องเรียนรู้ทั้ง AI และ coding ควบคู่กัน รวมถึงทดสอบหลังปรับทุกครั้ง การให้ AI สร้าง code ภาพรวมพร้อม specification ชัดเจนช่วยรักษาความสอดคล้องของสี layout และองค์ประกอบได้มากกว่าการแก้เป็นส่วน ๆ</div>
-</div></article>
-</div></div></section>
-<section class="final" id="documents"><div class="wrap"><div class="heading"><div class="eyebrow">Supporting materials</div><h2>เว็บไซต์เกมและเอกสารประกอบ</h2><p>ส่วนท้ายของเว็บไซต์รวบรวมผลงานที่เปิดตรวจได้: เกม Exergaming, รายงานจาก Overleaf และ PDF รวมงานทั้ง 6 หัวข้อ</p></div><div class="final-grid"><article class="final-card"><h3>🎮 เว็บไซต์เกม Exergaming</h3><p>Phornpa Go Go! — Home Row Reflex Exergame เกมฝึกปฏิกิริยาตอบสนองผ่านการพิมพ์ เล่นครบ 10 รอบเพื่อรับคะแนนเต็ม 10</p><a href="https://valsecoding.github.io/Exergaming-Ai101/" target="_blank" rel="noopener">ไปที่เว็บไซต์เกม</a></article><article class="final-card"><h3>📄 บทความจาก Overleaf</h3><p>ไฟล์ Exergaming.pdf: บทความเกี่ยวกับการบูรณาการ digital entertainment, kinesiology และ immersive technology</p><a href="Exergaming.pdf" target="_blank" rel="noopener">เปิดบทความ PDF</a></article><article class="final-card"><h3>📚 PDF รวมทุกหัวข้อ</h3><p>ไฟล์สรุปรวมงาน AI101 ทั้ง 6 แง่ สำหรับการตรวจงานและการส่งอาจารย์</p><a href="Phornpa-Lert-Ai101-class-1st-assignment-version-1.0-2.pdf" target="_blank" rel="noopener">เปิด PDF รวมงาน</a></article><article class="final-card"><h3>✅ ตรวจสอบก่อนส่ง</h3><p>อัปโหลดไฟล์รูป, PDF ทั้งสอง และ `index.html` ไว้ในโฟลเดอร์เดียวกัน จากนั้นเปิด URL จริงเพื่อตรวจภาพและปุ่มทุกปุ่ม</p><a href="#top">กลับขึ้นด้านบน</a></article></div></div></section>
-</main><footer class="foot">AI101 Prompt Journey · Exergaming · Phornpa Lertutsahakul · 2026</footer>
+  <nav>
+    <div class="wrap navin"><a class="brand" href="#top">AI101 <b>Prompt Journey</b></a>
+      <div class="links"><a href="#overview">ภาพรวม</a><a href="#one">1 Canva</a><a href="#two">2 Desmos</a><a
+          href="#three">3 Mermaid</a><a href="#four">4 Overleaf</a><a href="#five">5 NotebookLM</a><a href="#six">6
+          GitHub</a></div>
+    </div>
+  </nav>
+  <header class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="kicker">AI101 · 1st Week Assignment</div>
+        <h1>Exergaming<br>Prompt Journey</h1>
+        <p>เว็บไซต์รูปแบบ presentation สำหรับแสดงกระบวนการสร้างและพัฒนา Prompt ตามสไลด์ต้นฉบับ โดยเรียงภาพ
+          “หนึ่งภาพต่อหนึ่งขั้น” เพื่อให้อาจารย์ตรวจตามลำดับได้ง่าย</p>
+        <p class="student"><strong>จัดทำโดย:</strong> พรภา เลิศอุตสาหกูล<br>รหัสนักศึกษา 2610717302066 ·
+          สาขาวิศวกรรมคอมพิวเตอร์และปัญญาประดิษฐ์<br>กลุ่มนอกเวลาวันอาทิตย์ รุ่นที่ 7 ปี 2569 · มหาวิทยาลัยหอการค้าไทย
+        </p>
+        <div class="actions"><a class="btn main" href="#one">เริ่มดู Slide 1</a><a class="btn line"
+            href="#documents">เอกสารและเกม</a></div>
+      </div>
+      <aside class="hero-card">
+        <h2>รูปแบบการตรวจงาน</h2>
+        <ul>
+          <li>1 ภาพ = 1 ขั้น/1 slide ของกระบวนการ</li>
+          <li>เรียง Zero-shot → Result #1 → Few-shot → Result #2</li>
+          <li>Reflection อยู่ท้ายแต่ละหัวข้อ</li>
+          <li>มีทั้งหมด 6 หัวข้อ ตาม PowerPoint</li>
+          <li>มี PDF และเว็บไซต์เกมท้ายงาน</li>
+        </ul>
+      </aside>
+    </div>
+  </header>
+  <main>
+    <section class="overview" id="overview">
+      <div class="wrap">
+        <div class="heading">
+          <div class="eyebrow">Prompt engineering</div>
+          <h2>หลักการพัฒนา Prompt</h2>
+          <p>เริ่มต้นจาก zero-shot เพื่อดูคำตอบตั้งต้น แล้วใช้จุดที่ยังไม่ตรงความต้องการเป็นข้อมูลสำหรับเพิ่มบริบท
+            ข้อจำกัด และรูปแบบผลลัพธ์ใน few-shot prompt</p>
+        </div>
+        <div class="principles">
+          <article class="principle">
+            <div class="num">1</div>
+            <h3>ระบุเป้าหมาย</h3>
+            <p>กำหนดสิ่งที่ต้องการสร้างและหัวข้อให้ชัด เพื่อให้ AI เข้าใจหน้าที่หลักของงาน</p>
+          </article>
+          <article class="principle">
+            <div class="num">2</div>
+            <h3>เพิ่มรายละเอียด</h3>
+            <p>ระบุ style, element, variable, node, relationship หรือ format เพื่อควบคุมผลลัพธ์</p>
+          </article>
+          <article class="principle">
+            <div class="num">3</div>
+            <h3>สะท้อนและปรับ</h3>
+            <p>เปรียบเทียบผลลัพธ์ก่อนและหลัง เพื่อเรียนรู้ว่า constraint ใดทำให้ผลงานตรงเป้าหมายขึ้น</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="journey">
+      <div class="wrap">
+        <div class="heading">
+          <div class="eyebrow">Presentation view</div>
+          <h2>หลักฐานเรียงตามสไลด์</h2>
+          <p>แต่ละกรอบด้านล่างแสดงเพียงภาพเดียว พร้อมหมายเลขและคำอธิบายของขั้นนั้น เพื่อให้ตรวจตาม PowerPoint
+            ได้ต่อเนื่อง</p>
+        </div>
+        <div class="aspects">
+          <article class="aspect" id="one">
+            <div class="aspect-head">
+              <div class="aspect-tag">Aspect 1 / 6</div>
+              <div class="aspect-row">
+                <h2>1. การสร้างภาพด้วย AI — Canva</h2><span class="pill">Slides 1–5</span>
+              </div>
+              <p>จากภาพ Exergaming แบบกว้าง สู่โปสเตอร์ flat-design ที่ระบุองค์ประกอบด้านสุขภาพและการออกกำลังกายชัดเจน
+              </p>
+            </div>
+            <div class="slide-list">
+              <div class="slide">
+                <div class="slide-top"><span class="stage">1.1 Zero-shot Prompt — Canva</span><span
+                    class="slide-no">Slide 1 / 30</span></div>
+                <div class="slide-body">
+                  <p>Prompt เริ่มต้น: ขอให้สร้างภาพเกี่ยวกับ Exergaming</p>
+                  <figure class="single-shot"><img src="1.1.jpeg" alt="Prompt: Create an image about Exergaming">
+                    <figcaption>ภาพ 1.1 — Zero-shot prompt</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="slide-top"><span class="stage">1.2 ผลลัพธ์จาก Prompt แรก</span><span class="slide-no">Slide
+                    2 / 30</span></div>
+                <div class="slide-body">
+                  <p>ผลลัพธ์เป็นภาพแนวสมจริงของการเล่นเกมร่วมกับการเคลื่อนไหว</p>
+                  <figure class="single-shot"><img src="1.2.jpeg" alt="First Canva result showing exergaming">
+                    <figcaption>ภาพ 1.2 — Result #1</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="slide-top"><span class="stage">1.3 Few-shot Prompt — Canva</span><span
+                    class="slide-no">Slide 3 / 30</span></div>
+                <div class="slide-body">
+                  <p>เพิ่ม constraint เรื่อง flat design, motion-sensing game, smartwatch, heart rate, calories และ
+                    steps</p>
+                  <figure class="single-shot"><img src="1.3.jpeg" alt="Few-shot Canva prompt">
+                    <figcaption>ภาพ 1.3 — Few-shot prompt</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="slide-top"><span class="stage">1.4 ผลลัพธ์จาก Prompt ใหม่</span><span class="slide-no">Slide
+                    4 / 30</span></div>
+                <div class="slide-body">
+                  <p>ได้โปสเตอร์สี teal/orange พร้อมข้อมูลสุขภาพและองค์ประกอบตามคำสั่ง</p>
+                  <figure class="single-shot"><img src="1.4.jpeg" alt="Flat design exergaming poster">
+                    <figcaption>ภาพ 1.4 — Result #2</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="reflection"><b>1.5 Reflection:</b> Prompt แรกกว้างจึงทำให้ AI ต้องเดาองค์ประกอบมากกว่า
+                เมื่อเพิ่ม constraint เกี่ยวกับ style, color palette, ตัวละคร, smartwatch และ UI elements
+                ผลลัพธ์ใหม่มีทิศทางชัดขึ้น ควบคุม layout ได้ และทำซ้ำได้ง่ายกว่า</div>
+            </div>
+          </article>
+          <article class="aspect" id="two">
+            <div class="aspect-head">
+              <div class="aspect-tag">Aspect 2 / 6</div>
+              <div class="aspect-row">
+                <h2>2. ความสัมพันธ์ทางคณิตศาสตร์ — Desmos</h2><span class="pill">Slides 6–10</span>
+              </div>
+              <p>จากกราฟพาราโบลาเริ่มต้น สู่การปรับสัมประสิทธิ์เพื่อให้กราฟกว้างและเหมาะกับโมเดลคะแนน Exergaming</p>
+            </div>
+            <div class="slide-list">
+              <div class="slide">
+                <div class="slide-top"><span class="stage">2.1 Zero-shot Prompt — Desmos</span><span
+                    class="slide-no">Slide 6 / 30</span></div>
+                <div class="slide-body">
+                  <p>ขอกราฟพาราโบลาอย่างง่ายสำหรับกิจกรรม Exergaming โดยใช้สมการ y=x²</p>
+                  <figure class="single-shot"><img src="2.1.png" alt="Zero-shot Desmos parabola prompt">
+                    <figcaption>ภาพ 2.1 — Zero-shot prompt</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="slide-top"><span class="stage">2.2.1 ผลลัพธ์จาก Prompt แรก: คำอธิบาย</span><span
+                    class="slide-no">Slide 7 / 30</span></div>
+                <div class="slide-body">
+                  <p>กำหนดความหมายตัวแปรตัวอย่าง: x คือจำนวนรอบ/นาทีที่เล่น และ y คือคะแนนเกมหรือ reward points</p>
+                  <figure class="single-shot"><img src="2.2.1.jpeg" alt="Explanation of y equals x squared">
+                    <figcaption>ภาพ 2.2.1 — Result #1: explanation</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="slide-top"><span class="stage">2.2.2 ผลลัพธ์จาก Prompt แรก: กราฟ</span><span
+                    class="slide-no">Slide 7 / 30</span></div>
+                <div class="slide-body">
+                  <p>กราฟ y=x² ที่ได้จาก Desmos</p>
+                  <figure class="single-shot"><img src="2.2.2.jpeg" alt="Desmos graph y equals x squared">
+                    <figcaption>ภาพ 2.2.2 — Result #1: graph</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="slide-top"><span class="stage">2.3 Few-shot Prompt — Desmos</span><span
+                    class="slide-no">Slide 8 / 30</span></div>
+                <div class="slide-body">
+                  <p>ระบุปัญหาว่ากราฟแคบเกินไป และขอพาราโบลาที่เปิดขึ้นและกว้างกว่าเดิม</p>
+                  <figure class="single-shot"><img src="2.3.jpeg" alt="Prompt asking for wider parabola">
+                    <figcaption>ภาพ 2.3 — Few-shot prompt</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="slide-top"><span class="stage">2.4.1 ผลลัพธ์จาก Prompt ใหม่: คำอธิบาย</span><span
+                    class="slide-no">Slide 9 / 30</span></div>
+                <div class="slide-body">
+                  <p>สมการ y=0.0002x² ใช้สัมประสิทธิ์บวกที่เล็กกว่า 1 จึงได้พาราโบลาที่กว้างขึ้น</p>
+                  <figure class="single-shot"><img src="2.4.1.jpeg" alt="Explanation of y equals 0.0002x squared">
+                    <figcaption>ภาพ 2.4.1 — Result #2: explanation</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="slide-top"><span class="stage">2.4.2 ผลลัพธ์จาก Prompt ใหม่: กราฟ</span><span
+                    class="slide-no">Slide 9 / 30</span></div>
+                <div class="slide-body">
+                  <p>กราฟพาราโบลากว้างขึ้นจาก Desmos</p>
+                  <figure class="single-shot"><img src="2.4.2.jpeg" alt="Desmos graph wide parabola">
+                    <figcaption>ภาพ 2.4.2 — Result #2: graph</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="reflection"><b>2.5 Reflection:</b> Prompt ที่ระบุปัญหาและลักษณะผลลัพธ์ที่ต้องการชัดเจน ทำให้
+                AI เสนอสมการที่ตรงเป้าหมายมากขึ้น Perplexity/AI ช่วยอธิบายหลักการ ขณะที่ Desmos
+                เหมาะสำหรับทดลองและมองเห็นผลของสมการเป็นกราฟ</div>
+            </div>
+          </article>
+          <article class="aspect" id="three">
+            <div class="aspect-head">
+              <div class="aspect-tag">Aspect 3 / 6</div>
+              <div class="aspect-row">
+                <h2>3. การสร้าง Diagram — Mermaid</h2><span class="pill">Slides 11–15</span>
+              </div>
+              <p>เปรียบเทียบ concept map แบบภาพรวมกับ system flow ที่แสดงกระบวนการทำงานของ Exergaming อย่างเฉพาะเจาะจง
+              </p>
+            </div>
+            <div class="slide-list">
+              <div class="slide">
+                <div class="slide-top"><span class="stage">3.1 Zero-shot Prompt — Mermaid</span><span
+                    class="slide-no">Slide 11 / 30</span></div>
+                <div class="slide-body">
+                  <p>ขอ Mermaid diagram เกี่ยวกับ Exergaming แบบกว้าง</p>
+                  <figure class="single-shot"><img src="3.1.jpeg" alt="Zero-shot Mermaid prompt">
+                    <figcaption>ภาพ 3.1 — Zero-shot prompt</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="slide-top"><span class="stage">3.2.1 ผลลัพธ์จาก Prompt แรก: Mermaid Code</span><span
+                    class="slide-no">Slide 12 / 30</span></div>
+                <div class="slide-body">
+                  <p>โค้ดสำหรับ concept map: definition, benefits, types, platforms และ users</p>
+                  <figure class="single-shot"><img src="3.2.1.jpeg" alt="Mermaid code concept map">
+                    <figcaption>ภาพ 3.2.1 — Result #1: Mermaid code</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="slide-top"><span class="stage">3.2.2 ผลลัพธ์จาก Prompt แรก: Diagram</span><span
+                    class="slide-no">Slide 12 / 30</span></div>
+                <div class="slide-body">
+                  <p>แผนภาพภาพรวมของ Exergaming ที่ได้จาก Mermaid</p>
+                  <figure class="single-shot"><img src="3.2.2.jpeg" alt="Exergaming concept map diagram">
+                    <figcaption>ภาพ 3.2.2 — Result #1: diagram</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="slide-top"><span class="stage">3.3 Few-shot Prompt — Mermaid</span><span
+                    class="slide-no">Slide 13 / 30</span></div>
+                <div class="slide-body">
+                  <p>เพิ่ม node, relationship และทิศทาง: การเคลื่อนไหว → sensor → game engine → action → feedback พร้อม
+                    heart-rate monitoring</p>
+                  <figure class="single-shot"><img src="3.3.jpeg" alt="Few-shot Mermaid system flow prompt">
+                    <figcaption>ภาพ 3.3 — Few-shot prompt</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="slide-top"><span class="stage">3.4.1 ผลลัพธ์จาก Prompt ใหม่: Mermaid Code</span><span
+                    class="slide-no">Slide 14 / 30</span></div>
+                <div class="slide-body">
+                  <p>Mermaid code สำหรับแผนภาพการทำงานของระบบ Exergaming แบบ real-time</p>
+                  <figure class="single-shot"><img src="3.4.1.jpeg" alt="Mermaid code for exergaming system flow">
+                    <figcaption>ภาพ 3.4.1 — Result #2: Mermaid code</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="slide-top"><span class="stage">3.4.2 ผลลัพธ์จาก Prompt ใหม่: Diagram</span><span
+                    class="slide-no">Slide 14 / 30</span></div>
+                <div class="slide-body">
+                  <p>System flow: player movement, motion sensor, game engine, character action, feedback
+                    และการปรับความยากจาก heart-rate monitor</p>
+                  <figure class="single-shot"><img src="3.4.2.jpeg" alt="Rendered exergaming system flowchart">
+                    <figcaption>ภาพ 3.4.2 — Result #2: system flow diagram</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="reflection"><b>3.5 Reflection:</b> Diagram แรกเป็น generic concept map จึงยังไม่สื่อ logic
+                ของระบบโดยตรง แต่ prompt ใหม่ระบุ node, relationship และ direction ของ flow ทำให้ได้ diagram
+                ที่อธิบายกระบวนการเชิงเทคนิคได้ชัดเจนและตรงความต้องการมากขึ้น</div>
+            </div>
+          </article>
+          <article class="aspect" id="four">
+            <div class="aspect-head">
+              <div class="aspect-tag">Aspect 4 / 6</div>
+              <div class="aspect-row">
+                <h2>4. บทความจาก LaTeX — Overleaf</h2><span class="pill">Slides 16–20</span>
+              </div>
+              <p>พัฒนา prompt เพื่อให้ได้ LaTeX source code ที่นำไปคัดลอกและ compile บน Overleaf ได้โดยตรง</p>
+            </div>
+            <div class="slide-list">
+              <div class="slide">
+                <div class="slide-top"><span class="stage">4.1 Zero-shot Prompt — Overleaf</span><span
+                    class="slide-no">Slide 16 / 30</span></div>
+                <div class="slide-body">
+                  <p>ขอให้เขียนบทความ LaTeX เรื่อง Exergaming ความยาว 10 หน้า สำหรับ Overleaf</p>
+                  <figure class="single-shot"><img src="4.1.jpeg" alt="Zero-shot prompt for LaTeX article">
+                    <figcaption>ภาพ 4.1 — Zero-shot prompt</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="slide-top"><span class="stage">4.2 Few-shot Prompt — Overleaf</span><span
+                    class="slide-no">Slide 18 / 30</span></div>
+                <div class="slide-body">
+                  <p>เพิ่มคำสั่งให้ส่ง “เฉพาะ code สำหรับ Overleaf ที่พร้อม copy”</p>
+                  <figure class="single-shot"><img src="4.2.jpeg" alt="Few-shot prompt only code ready to copy">
+                    <figcaption>ภาพ 4.2 — Few-shot prompt</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="slide-top"><span class="stage">4.3 ผลลัพธ์จาก Prompt แรก / ข้อสังเกต</span><span
+                    class="slide-no">Slide 17 / 30</span></div>
+                <div class="slide-body">
+                  <p>ตัวอย่างปัญหาที่เกิดจากข้อความส่วนเกินปนใน code ทำให้การ compile ไม่สมบูรณ์</p>
+                  <figure class="single-shot"><img src="4.3.jpeg" alt="Overleaf code problem">
+                    <figcaption>ภาพ 4.3 — Result #1 / issue observed</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="slide-top"><span class="stage">4.4 ผลลัพธ์จาก Prompt ใหม่</span><span class="slide-no">Slide
+                    19 / 30</span></div>
+                <div class="slide-body">
+                  <p>บทความ Exergaming ที่ compile บน Overleaf สำเร็จ</p>
+                  <figure class="single-shot"><img src="4.4.jpeg" alt="Compiled Exergaming article in Overleaf">
+                    <figcaption>ภาพ 4.4 — Result #2: compiled article</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="reflection"><b>4.5 Reflection:</b> หากต้องการผลลัพธ์ที่นำไปใช้ได้ทันที ควรระบุรูปแบบ output
+                ให้ชัดเจน การขอเฉพาะ LaTeX code ที่พร้อม copy ช่วยลดข้อความส่วนเกินในพื้นที่ code และลดปัญหา compile
+                เอกสารไม่ขึ้น</div>
+              <div class="file-panel">
+                <div>
+                  <h3>📄 Exergaming.pdf — บทความจาก Overleaf</h3>
+                  <p>Exergaming: A Comprehensive Treatise on the Fusion of Digital Entertainment, Kinesiology, and
+                    Immersive Technology</p>
+                </div><a href="Exergaming.pdf" target="_blank" rel="noopener">เปิด/ดาวน์โหลด PDF</a>
+              </div>
+            </div>
+          </article>
+          <article class="aspect" id="five">
+            <div class="aspect-head">
+              <div class="aspect-tag">Aspect 5 / 6</div>
+              <div class="aspect-row">
+                <h2>5. สรุปเป็นสไลด์ — NotebookLM</h2><span class="pill">Slides 21–25</span>
+              </div>
+              <p>ใช้บทความ Exergaming เป็น reference เพื่อสร้าง slide deck และปรับชื่อเรื่องให้สัมพันธ์กับสาระของงาน</p>
+            </div>
+            <div class="slide-list">
+              <div class="slide">
+                <div class="slide-top"><span class="stage">5.1.1 เตรียม Source ใน NotebookLM</span><span
+                    class="slide-no">Slide 21 / 30</span></div>
+                <div class="slide-body">
+                  <p>เลือกไฟล์ PDF Exergaming เป็นแหล่งอ้างอิงสำหรับสร้างสไลด์</p>
+                  <figure class="single-shot"><img src="5.1.1.jpeg" alt="NotebookLM source selection">
+                    <figcaption>ภาพ 5.1.1 — Source: Exergaming PDF</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="slide-top"><span class="stage">5.1.2 Zero-shot Prompt — NotebookLM</span><span
+                    class="slide-no">Slide 21 / 30</span></div>
+                <div class="slide-body">
+                  <p>Prompt เริ่มต้น: ใช้ reference นี้เพื่อสร้าง slides</p>
+                  <figure class="single-shot"><img src="5.1.2.jpeg" alt="Use this reference to make slides">
+                    <figcaption>ภาพ 5.1.2 — Zero-shot prompt</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="slide-top"><span class="stage">5.2 ผลลัพธ์จาก Prompt แรก</span><span class="slide-no">Slide
+                    22 / 30</span></div>
+                <div class="slide-body">
+                  <p>NotebookLM สร้าง slide deck โดยอิงจากเนื้อหาในเอกสาร Exergaming</p>
+                  <figure class="single-shot"><img src="5.2.jpeg" alt="NotebookLM generated slide deck">
+                    <figcaption>ภาพ 5.2 — Result #1</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="slide-top"><span class="stage">5.3 Few-shot Prompt — NotebookLM</span><span
+                    class="slide-no">Slide 23 / 30</span></div>
+                <div class="slide-body">
+                  <p>ปรับชื่อหัวข้อให้เป็น “Exergaming: The fusion of digital play and kinesiology”</p>
+                  <figure class="single-shot"><img src="5.3.jpeg" alt="Rename topic prompt">
+                    <figcaption>ภาพ 5.3 — Few-shot prompt</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="slide-top"><span class="stage">5.4.1 ผลลัพธ์จาก Prompt ใหม่: การตอบกลับ</span><span
+                    class="slide-no">Slide 24 / 30</span></div>
+                <div class="slide-body">
+                  <p>AI อธิบายวิธีเปลี่ยนชื่อ notebook/artifact และยืนยันชื่อหัวข้อใหม่</p>
+                  <figure class="single-shot"><img src="5.4.1.jpeg" alt="NotebookLM response to rename topic">
+                    <figcaption>ภาพ 5.4.1 — Result #2: response</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="slide-top"><span class="stage">5.4.2 ผลลัพธ์จาก Prompt ใหม่: Slide Cover</span><span
+                    class="slide-no">Slide 24 / 30</span></div>
+                <div class="slide-body">
+                  <p>สไลด์ปกที่ใช้หัวข้อ Exergaming: The fusion of digital play and kinesiology</p>
+                  <figure class="single-shot"><img src="5.4.2.jpeg" alt="Exergaming generated slide cover">
+                    <figcaption>ภาพ 5.4.2 — Result #2: updated slide</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="reflection"><b>5.5 Reflection:</b> AI แต่ละเครื่องมือมีวิธีทำงานไม่เหมือนกัน NotebookLM
+                เหมาะกับการสรุปโดยอิง source ที่อัปโหลด และสามารถปรับแก้รายละเอียดของงานนำเสนอเป็นส่วน ๆ ได้
+                การระบุหัวข้อและเป้าหมายให้ชัดจึงช่วยให้สไลด์ตรงกับงานมากขึ้น</div>
+            </div>
+          </article>
+          <article class="aspect" id="six">
+            <div class="aspect-head">
+              <div class="aspect-tag">Aspect 6 / 6</div>
+              <div class="aspect-row">
+                <h2>6. เขียนเว็บไซต์และเผยแพร่บน GitHub</h2><span class="pill">Slides 26–30</span>
+              </div>
+              <p>สร้างเกมฝึก typing แบบ Exergaming แล้วพัฒนา visual design และเผยแพร่ผ่าน GitHub Pages</p>
+            </div>
+            <div class="slide-list">
+              <div class="slide">
+                <div class="slide-top"><span class="stage">6.1 Zero-shot Prompt — Website/Game</span><span
+                    class="slide-no">Slide 26 / 30</span></div>
+                <div class="slide-body">
+                  <p>ขอ file Exergaming สำหรับ typing exercise ตัวอักษร a, s, d, f, j, k, l, ; มี 10 รอบและคะแนนเต็ม 10
+                  </p>
+                  <figure class="single-shot"><img src="6.1.jpeg" alt="Zero-shot prompt to create typing exergame">
+                    <figcaption>ภาพ 6.1 — Zero-shot prompt</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="slide-top"><span class="stage">6.2.1 ผลลัพธ์จาก Prompt แรก: เกม</span><span
+                    class="slide-no">Slide 27 / 30</span></div>
+                <div class="slide-body">
+                  <p>หน้าเกม Home Row Reflex สำหรับฝึกความไวของนิ้วบนตำแหน่ง Home Row</p>
+                  <figure class="single-shot"><img src="6.2.1.jpeg" alt="Home Row Reflex game first version">
+                    <figcaption>ภาพ 6.2.1 — Result #1: game</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="slide-top"><span class="stage">6.2.2 ผลลัพธ์จาก Prompt แรก: Code/README</span><span
+                    class="slide-no">Slide 27 / 30</span></div>
+                <div class="slide-body">
+                  <p>AI สร้างไฟล์ HTML และ README สำหรับนำไป deploy บน GitHub Pages</p>
+                  <figure class="single-shot"><img src="6.2.2.jpeg" alt="Generated code and README">
+                    <figcaption>ภาพ 6.2.2 — Result #1: code and README</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="slide-top"><span class="stage">6.3.1 การถามต่อ: ปรับชื่อและโทนสี</span><span
+                    class="slide-no">Slide 28 / 30</span></div>
+                <div class="slide-body">
+                  <p>ขอเปลี่ยนชื่อเป็น “Phornpa Go Go! — Home Row Reflex Exergame” และเปลี่ยน background
+                    เป็นฟ้าเข้ม/ตัวอักษรสีเขียวสว่าง</p>
+                  <figure class="single-shot"><img src="6.3.1.jpeg" alt="Prompt to rename and recolor game">
+                    <figcaption>ภาพ 6.3.1 — Few-shot prompt: name and colors</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="slide-top"><span class="stage">6.3.2 ผลลัพธ์จากการปรับชื่อและสี</span><span
+                    class="slide-no">Slide 28 / 30</span></div>
+                <div class="slide-body">
+                  <p>AI อธิบายสาเหตุและสร้าง code ใหม่ที่เปลี่ยน title พร้อมกำหนด color variables สำหรับธีมใหม่</p>
+                  <figure class="single-shot"><img src="6.3.2.jpeg" alt="Code response changing title and color">
+                    <figcaption>ภาพ 6.3.2 — Result: renamed and recolored code</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="slide-top"><span class="stage">6.4.1 Few-shot Prompt — ปรับดีไซน์เว็บไซต์</span><span
+                    class="slide-no">Slide 28 / 30</span></div>
+                <div class="slide-body">
+                  <p>ระบุให้ทำหน้าเว็บแนว Exergaming ด้วยธีม navy + mint/red accent และมีคำอธิบายภาษาไทย</p>
+                  <figure class="single-shot"><img src="6.4.1.jpeg" alt="Prompt to improve Exergaming website design">
+                    <figcaption>ภาพ 6.4.1 — Few-shot prompt: visual design</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="slide-top"><span class="stage">6.4.2 ผลลัพธ์จาก Prompt ใหม่: เว็บไซต์เกม</span><span
+                    class="slide-no">Slide 29 / 30</span></div>
+                <div class="slide-body">
+                  <p>หน้าเว็บไซต์เกมหลังปรับดีไซน์ตามธีม Exergaming</p>
+                  <figure class="single-shot"><img src="6.4.2.jpeg" alt="Improved Home Row Reflex game page">
+                    <figcaption>ภาพ 6.4.2 — Result #2: redesigned website</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="slide-top"><span class="stage">6.6 เว็บไซต์เกมที่เผยแพร่แล้ว</span><span
+                    class="slide-no">Slide 30 / 30</span></div>
+                <div class="slide-body">
+                  <p>หลักฐานการเผยแพร่เกม Phornpa Go Go! — Home Row Reflex Exergame บน GitHub Pages</p>
+                  <figure class="single-shot"><img src="6.6-game-link.jpeg" alt="Published game site link">
+                    <figcaption>ภาพ 6.6 — Published game website</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="reflection"><b>6.5 Reflection:</b> การแก้โค้ดอาจทำให้ผลลัพธ์ดีขึ้นหรือแย่ลงได้
+                จึงต้องเรียนรู้ทั้ง AI และ coding ควบคู่กัน รวมถึงทดสอบหลังปรับทุกครั้ง การให้ AI สร้าง code ภาพรวมพร้อม
+                specification ชัดเจนช่วยรักษาความสอดคล้องของสี layout และองค์ประกอบได้มากกว่าการแก้เป็นส่วน ๆ</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="final" id="documents">
+      <div class="wrap">
+        <div class="heading">
+          <div class="eyebrow">Supporting materials</div>
+          <h2>เว็บไซต์เกมและเอกสารประกอบ</h2>
+          <p>ส่วนท้ายของเว็บไซต์รวบรวมผลงานที่เปิดตรวจได้: เกม Exergaming, รายงานจาก Overleaf และ PDF รวมงานทั้ง 6
+            หัวข้อ</p>
+        </div>
+        <div class="final-grid">
+          <article class="final-card">
+            <h3>🎮 เว็บไซต์เกม Exergaming</h3>
+            <p>Phornpa Go Go! — Home Row Reflex Exergame เกมฝึกปฏิกิริยาตอบสนองผ่านการพิมพ์ เล่นครบ 10
+              รอบเพื่อรับคะแนนเต็ม 10</p><a href="https://valsecoding.github.io/Exergaming-Ai101/" target="_blank"
+              rel="noopener">ไปที่เว็บไซต์เกม</a>
+          </article>
+          <article class="final-card">
+            <h3>📄 บทความจาก Overleaf</h3>
+            <p>ไฟล์ Exergaming.pdf: บทความเกี่ยวกับการบูรณาการ digital entertainment, kinesiology และ immersive
+              technology</p><a href="Exergaming.pdf" target="_blank" rel="noopener">เปิดบทความ PDF</a>
+          </article>
+          <article class="final-card">
+            <h3>📚 PDF รวมทุกหัวข้อ</h3>
+            <p>ไฟล์สรุปรวมงาน AI101 ทั้ง 6 แง่ สำหรับการตรวจงานและการส่งอาจารย์</p><a
+              href="Phornpa-Lert-Ai101-class-1st-assignment-version-1.0-2.pdf" target="_blank" rel="noopener">เปิด PDF
+              รวมงาน</a>
+          </article>
+          <article class="final-card">
+            <h3>✅ ตรวจสอบก่อนส่ง</h3>
+            <p>อัปโหลดไฟล์รูป, PDF ทั้งสอง และ `index.html` ไว้ในโฟลเดอร์เดียวกัน จากนั้นเปิด URL
+              จริงเพื่อตรวจภาพและปุ่มทุกปุ่ม</p><a href="#top">กลับขึ้นด้านบน</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="foot">AI101 Prompt Journey · Exergaming · Phornpa Lertutsahakul · 2026</footer>
 </body>
+
 </html>
